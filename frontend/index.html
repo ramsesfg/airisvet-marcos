@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pelo & Pata — Peluquería Canina</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="#" class="logo">
+        <span class="logo-mark">🐾</span>
+        <span class="logo-text">Pelo <em>&</em> Pata</span>
+      </a>
+      <nav class="nav">
+        <a href="#servicios">Servicios</a>
+        <a href="#reservar">Reservar</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <a href="#reservar" class="btn btn-primary btn-small">Reservar cita</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Peluquería canina — atención con hora asignada</p>
+          <h1>Un baño, un corte,<br>una cola feliz.</h1>
+          <p class="hero-lead">
+            Baño, corte y cuidado de uñas para perros de cualquier tamaño y pelaje.
+            Cada cita tiene su horario, sin esperas eternas en sala.
+          </p>
+          <div class="hero-actions">
+            <a href="#reservar" class="btn btn-primary">Reservar cita</a>
+            <a href="#servicios" class="btn btn-ghost">Ver servicios</a>
+          </div>
+        </div>
+
+        <div class="hero-ticket" aria-hidden="true">
+          <div class="ticket">
+            <div class="ticket-row">
+              <span class="ticket-label">Cliente</span>
+              <span class="ticket-value">Rocky</span>
+            </div>
+            <div class="ticket-row">
+              <span class="ticket-label">Servicio</span>
+              <span class="ticket-value">Baño + Corte</span>
+            </div>
+            <div class="ticket-row">
+              <span class="ticket-label">Hora</span>
+              <span class="ticket-value">10:30 am</span>
+            </div>
+            <div class="ticket-perf"></div>
+            <div class="ticket-stub">Nº 014</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats">
+      <div class="wrap stats-grid">
+        <div class="stat">
+          <span class="stat-num">7</span>
+          <span class="stat-label">años de experiencia</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">+1200</span>
+          <span class="stat-label">peludos atendidos</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">30 min</span>
+          <span class="stat-label">promedio por cita</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="servicios">
+      <div class="wrap">
+        <p class="eyebrow">Servicios</p>
+        <h2>Elegí lo que tu perro necesita</h2>
+
+        <div class="servicios-grid">
+          <article class="servicio-card">
+            <span class="servicio-icon">🛁</span>
+            <h3>Baño</h3>
+            <p>Shampoo según tipo de pelaje, secado y cepillado final.</p>
+            <span class="servicio-precio">desde $8.000</span>
+          </article>
+
+          <article class="servicio-card">
+            <span class="servicio-icon">✂️</span>
+            <h3>Corte</h3>
+            <p>Corte a tijera o máquina, a elección según raza y estilo.</p>
+            <span class="servicio-precio">desde $12.000</span>
+          </article>
+
+          <article class="servicio-card">
+            <span class="servicio-icon">🐾</span>
+            <h3>Uñas</h3>
+            <p>Corte y limado de uñas, revisión de almohadillas.</p>
+            <span class="servicio-precio">desde $4.000</span>
+          </article>
+
+          <article class="servicio-card">
+            <span class="servicio-icon">👂</span>
+            <h3>Higiene</h3>
+            <p>Limpieza de oídos y ojos, cepillado dental básico.</p>
+            <span class="servicio-precio">desde $5.000</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESERVAR -->
+    <section id="reservar" class="reservar">
+      <div class="wrap reservar-inner">
+        <div class="reservar-copy">
+          <p class="eyebrow">Reservar</p>
+          <h2>Sacá tu turno</h2>
+          <p>Contanos sobre tu perro y elegí el servicio. Te confirmamos por teléfono.</p>
+          <p id="estado" class="estado">Verificando conexión con el sistema de reservas...</p>
+        </div>
+
+        <div class="reservar-form-card">
+          <form id="form-tarea">
+            <label>
+              Nombre del perro
+              <input type="text" id="input-titulo" placeholder="Ej: Rocky — Baño y corte" required />
+            </label>
+            <button type="submit" class="btn btn-primary">Agregar a la agenda</button>
+          </form>
+
+          <ul id="lista-tareas" class="citas-lista"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contacto" class="site-footer">
+    <div class="wrap footer-inner">
+      <div>
+        <span class="logo-text footer-logo">Pelo <em>&</em> Pata</span>
+        <p>Peluquería canina de barrio, con hora asignada.</p>
+      </div>
+      <div class="footer-info">
+        <p>Lunes a sábado, 9:00–18:00</p>
+        <p>+56 9 0000 0000</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
