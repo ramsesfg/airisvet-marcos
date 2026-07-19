@@ -1,69 +1,140 @@
-"""
-Plantilla backend con Flask
-----------------------------
-Servidor de ejemplo con:
-- CORS configurado para el frontend
-- Rutas organizadas con Blueprints
-- Variables de entorno con python-dotenv
-- Un endpoint de ejemplo que el frontend consume
-"""
-
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from dotenv import load_dotenv
+import sqlite3
 import os
 
-load_dotenv()  # Carga variables desde .env
+load_dotenv()
 
 app = Flask(__name__)
 
-# Configuración de CORS: en desarrollo permitimos el origen del frontend.
-# En producción, restringí esto al dominio real de tu frontend.
 FRONTEND_ORIGIN = os.getenv("FRONTEND_ORIGIN", "http://127.0.0.1:5500")
 CORS(app, origins=[FRONTEND_ORIGIN])
 
-# --- Datos de ejemplo (simula una "base de datos" en memoria) ---
-tareas = [
-    {"id": 1, "titulo": "Aprender Flask", "hecha": False},
-    {"id": 2, "titulo": "Conectar frontend con backend", "hecha": False},
-]
+DB_PATH = os.path.join(os.path.dirname(__file__), "arisvet.db")
+
+
+def get_db():
+    conn = sqlite3.connect(DB_PATH)
+    conn.row_factory = sqlite3.Row
+    return conn
+
+
+def init_db():
+    conn = get_db()
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS perfiles (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            perro_nombre TEXT NOT NULL,
+            raza TEXT,
+            tamano TEXT,
+            dueno_nombre TEXT NOT NULL,
+            dueno_telefono TEXT,
+            servicio TEXT,
+            fecha TEXT,
+            hora TEXT,
+            creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+    """)
+    conn.commit()
+
+    # Migración: si la tabla ya existía sin estas columnas, las agrega.
+    columnas_existentes = [fila["name"] for fila in conn.execute("PRAGMA table_info(perfiles)").fetchall()]
+    for columna in ("servicio", "fecha", "hora"):
+        if columna not in columnas_existentes:
+            conn.execute(f"ALTER TABLE perfiles ADD COLUMN {columna} TEXT")
+    conn.commit()
+    conn.close()
+init_db()
 
 
 @app.route("/api/health", methods=["GET"])
 def health():
-    """Endpoint simple para verificar que el server está vivo."""
     return jsonify({"status": "ok", "mensaje": "Backend funcionando 🚀"})
 
 
-@app.route("/api/tareas", methods=["GET"])
-def obtener_tareas():
-    return jsonify(tareas)
+@app.route("/api/perfiles", methods=["GET"])
+def obtener_perfiles():
+    conn = get_db()
+    filas = conn.execute("SELECT * FROM perfiles ORDER BY id DESC").fetchall()
+    conn.close()
+    return jsonify([dict(f) for f in filas])
 
-
-@app.route("/api/tareas", methods=["POST"])
-def crear_tarea():
+@app.route("/api/perfiles", methods=["POST"])
+def crear_perfil():
     data = request.get_json(silent=True) or {}
-    titulo = data.get("titulo", "").strip()
+    perro_nombre = data.get("perro_nombre", "").strip()
+    dueno_nombre = data.get("dueno_nombre", "").strip()
 
-    if not titulo:
-        return jsonify({"error": "El campo 'titulo' es obligatorio"}), 400
+    if not perro_nombre or not dueno_nombre:
+        return jsonify({"error": "Los campos 'perro_nombre' y 'dueno_nombre' son obligatorios"}), 400
 
-    nueva = {
-        "id": (tareas[-1]["id"] + 1) if tareas else 1,
-        "titulo": titulo,
-        "hecha": False,
-    }
-    tareas.append(nueva)
-    return jsonify(nueva), 201
+    conn = get_db()
+    cur = conn.execute(
+        """INSERT INTO perfiles
+           (perro_nombre, raza, tamano, dueno_nombre, dueno_telefono, servicio, fecha, hora)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
+        (
+            perro_nombre,
+            data.get("raza", ""),
+            data.get("tamano", ""),
+            dueno_nombre,
+            data.get("dueno_telefono", ""),
+            data.get("servicio", ""),
+            data.get("fecha", ""),
+            data.get("hora", ""),
+        ),
+    )
+    conn.commit()
+    nuevo = conn.execute("SELECT * FROM perfiles WHERE id = ?", (cur.lastrowid,)).fetchone()
+    conn.close()
+    return jsonify(dict(nuevo)), 201
+
+@app.route("/api/perfiles/<int:perfil_id>", methods=["PUT"])
+def actualizar_perfil(perfil_id):
+    data = request.get_json(silent=True) or {}
+    perro_nombre = data.get("perro_nombre", "").strip()
+    dueno_nombre = data.get("dueno_nombre", "").strip()
+
+    if not perro_nombre or not dueno_nombre:
+        return jsonify({"error": "Los campos 'perro_nombre' y 'dueno_nombre' son obligatorios"}), 400
+
+    conn = get_db()
+    conn.execute(
+        """UPDATE perfiles SET
+           perro_nombre = ?, raza = ?, tamano = ?, dueno_nombre = ?, dueno_telefono = ?,
+           servicio = ?, fecha = ?, hora = ?
+           WHERE id = ?""",
+        (
+            perro_nombre,
+            data.get("raza", ""),
+            data.get("tamano", ""),
+            dueno_nombre,
+            data.get("dueno_telefono", ""),
+            data.get("servicio", ""),
+            data.get("fecha", ""),
+            data.get("hora", ""),
+            perfil_id,
+        ),
+    )
+    conn.commit()
+    actualizado = conn.execute("SELECT * FROM perfiles WHERE id = ?", (perfil_id,)).fetchone()
+    conn.close()
+
+    if not actualizado:
+        return jsonify({"error": "Perfil no encontrado"}), 404
+
+    return jsonify(dict(actualizado)), 200
 
 
-@app.route("/api/tareas/<int:tarea_id>", methods=["DELETE"])
-def eliminar_tarea(tarea_id):
-    global tareas
-    tareas = [t for t in tareas if t["id"] != tarea_id]
-    return jsonify({"mensaje": "Tarea eliminada"}), 200
+@app.route("/api/perfiles/<int:perfil_id>", methods=["DELETE"])
+def eliminar_perfil(perfil_id):
+    conn = get_db()
+    conn.execute("DELETE FROM perfiles WHERE id = ?", (perfil_id,))
+    conn.commit()
+    conn.close()
+    return jsonify({"mensaje": "Perfil eliminado"}), 200
 
 
 if __name__ == "__main__":
-    # debug=True solo para desarrollo, nunca en producción
     app.run(debug=True, port=5000)
