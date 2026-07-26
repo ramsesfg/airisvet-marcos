@@ -84,7 +84,6 @@ a { color: inherit; text-decoration: none; }
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--coral);
   margin: 0 0 12px;
 }
 
@@ -92,7 +91,6 @@ a { color: inherit; text-decoration: none; }
   content: "";
   width: 18px;
   height: 1px;
-  background: var(--coral);
   display: inline-block;
 }
 
@@ -201,8 +199,6 @@ a { color: inherit; text-decoration: none; }
   transition: color 0.15s ease;
 }
 
-.nav a:hover { color: var(--coral); }
-
 .nav a::after {
   content: "";
   position: absolute;
@@ -210,7 +206,6 @@ a { color: inherit; text-decoration: none; }
   bottom: -2px;
   width: 0;
   height: 2px;
-  background: var(--coral);
   transition: width 0.2s ease;
 }
 
@@ -250,7 +245,7 @@ a { color: inherit; text-decoration: none; }
 
 .hero-inner {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 7fr 3fr;
   align-items: center;
   gap: 56px;
 }
@@ -282,11 +277,14 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   justify-content: center;
 }
-
 .ticket {
   position: relative;
-  width: 280px;
-  background: var(--white);
+  width: 320px;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.6)),
+    url('img/logo-arisvet.jpg.jpg');
+  background-size: cover;
+  background-position: center;
   border-radius: var(--radius-md);
   padding: 26px 24px 20px;
   box-shadow: var(--shadow-ticket);
@@ -350,7 +348,6 @@ a { color: inherit; text-decoration: none; }
   text-align: center;
   font-size: 0.78rem;
   letter-spacing: 0.14em;
-  color: var(--coral);
   font-weight: 700;
 }
 
@@ -410,7 +407,6 @@ a { color: inherit; text-decoration: none; }
 .stats::after {
   width: 280px;
   height: 280px;
-  background: var(--coral);
   opacity: 0.28;
   bottom: -150px;
   right: -40px;
@@ -519,7 +515,6 @@ a { color: inherit; text-decoration: none; }
   display: inline-block;
   font-size: 0.82rem;
   font-weight: 700;
-  color: var(--coral);
   letter-spacing: 0.02em;
 }
 
@@ -529,6 +524,78 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 560px) {
   .servicios-grid { grid-template-columns: 1fr; }
+}
+
+/* -------------------- Mini-galería junto al logo (Hero) -------------------- */
+
+.hero-logo-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.hero-logo-row .hero-logo {
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+.hero-mini-galeria {
+  display: flex;
+  gap: 8px;
+  height: 420px;
+  flex: 1;
+  min-width: 0;
+}
+
+.mini-card {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  background-color: var(--pine);
+  background-size: cover;
+  background-position: center;
+  box-shadow: var(--shadow-card);
+  filter: grayscale(85%) brightness(0.88);
+  transition: flex 0.7s cubic-bezier(.25, 1, .5, 1),
+              filter 0.7s cubic-bezier(.25, 1, .5, 1);
+}
+
+.mini-card:hover,
+.mini-card.activa {
+  flex: 3;
+  filter: grayscale(0%) brightness(1);
+}
+
+/* Reemplazá estas URLs por las fotos reales de los perros atendidos.
+   Podés usar rutas relativas, ej: url('img/galeria/1.jpg') */
+.gc1 { background-image: url('img/esta-sirve2.jpg'); }
+.gc2 { background-image: url('img/esta-sirve.jpg'); }
+.gc3 { background-image: url('img/IMG-20251102-WA0000.jpg'); }
+.gc4 { background-image: url('img/remplazo.jpg'); }
+
+
+@media (max-width: 640px) {
+  .hero-logo-row {
+    flex-direction: column;
+  }
+  .hero-mini-galeria {
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+  }
+  .mini-card {
+    height: 90px;
+    flex: none;
+  }
+  .mini-card:hover,
+  .mini-card.activa {
+    height: 260px;
+    flex: none;
+  }
 }
 
 /* -------------------- Reservar -------------------- */
@@ -563,7 +630,6 @@ a { color: inherit; text-decoration: none; }
 .reservar::after {
   width: 380px;
   height: 380px;
-  background: var(--coral);
   opacity: 0.2;
   bottom: -180px;
   right: -100px;
@@ -685,7 +751,6 @@ a { color: inherit; text-decoration: none; }
 .citas-lista button {
   border: none;
   background: transparent;
-  color: var(--coral);
   font-weight: 600;
   font-size: 0.82rem;
   cursor: pointer;
@@ -756,4 +821,311 @@ a { color: inherit; text-decoration: none; }
     width: 76px;
     height: 76px;
   }
+}
+/* -------------------- Form dentro del ticket -------------------- */
+
+.hero-ticket .ticket-row {
+  display: block;
+  border-bottom: none;
+  padding: 0;
+}
+
+.ticket #form-tarea label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-bottom: 14px;
+}
+
+.ticket #form-tarea input {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 11px 14px;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  border: 1.5px solid var(--sage-line);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  color: var(--ink);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ticket #form-tarea input:focus {
+  outline: none;
+  border-color: var(--marigold);
+  box-shadow: 0 0 0 4px rgba(223, 162, 60, 0.18);
+}
+
+.ticket #form-tarea .btn {
+  width: 100%;
+}
+
+.ticket .citas-lista {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ticket .citas-lista li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--paper-soft);
+  border: 1px dashed var(--sage-line);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  color: var(--ink);
+}
+/* -------------------- Panel de perfiles -------------------- */
+
+.panel-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 59, 54, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+
+.panel-overlay.hidden {
+  display: none;
+}
+
+.panel-perfil {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  max-height: 85vh;
+  overflow-y: auto;
+  background: var(--paper-soft);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  box-shadow: var(--shadow-ticket);
+}
+
+.btn-cerrar {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+
+.panel-perfil h3 {
+  margin-bottom: 18px;
+}
+
+#form-perfil label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-bottom: 14px;
+}
+
+#form-perfil input,
+#form-perfil select {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 11px 14px;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  border: 1.5px solid var(--sage-line);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  color: var(--ink);
+}
+
+#form-perfil input:focus,
+#form-perfil select:focus {
+  outline: none;
+  border-color: var(--marigold);
+  box-shadow: 0 0 0 4px rgba(223, 162, 60, 0.18);
+}
+
+#form-perfil .btn {
+  width: 100%;
+  margin-top: 6px;
+}
+
+.panel-divider {
+  border: none;
+  border-top: 1px dashed var(--sage-line);
+  margin: 26px 0 18px;
+}
+
+.perfiles-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.perfiles-lista li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--white);
+  border: 1px dashed var(--sage-line);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  color: var(--ink);
+}
+
+.perfiles-lista .acciones {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.perfiles-lista button {
+  border: none;
+  background: transparent;
+  font-weight: 600;
+  font-size: 0.78rem;
+  cursor: pointer;
+  padding: 5px 9px;
+  border-radius: 999px;
+}
+
+.perfiles-lista button:first-child {
+  color: var(--pine);
+}
+
+.perfiles-lista button:last-child {
+  color: var(--marigold);
+}
+
+.perfiles-lista button:hover {
+  background: rgba(30, 59, 54, 0.08);
+}
+/* -------------------- Calendario -------------------- */
+/* -------------------- Calendario -------------------- */
+
+.calendario {
+  padding: 40px 0;
+}
+
+.calendario .wrap {
+  max-width: 380px;
+}
+
+.calendario h2 {
+  font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+  margin-bottom: 18px;
+}
+
+.calendario-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.mes-actual {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--pine);
+}
+
+.calendario-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+  margin-bottom: 16px;
+}
+
+.dia-cabecera {
+  text-align: center;
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  padding-bottom: 3px;
+}
+
+.dia-celda {
+  position: relative;
+  aspect-ratio: 1;
+  max-height: 28px;
+  border: 1px solid var(--sage-line);
+  border-radius: 6px;
+  background: var(--paper-soft);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.64rem;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.dia-celda:hover {
+  border-color: var(--marigold);
+}
+
+.dia-celda.seleccionado {
+  background: var(--pine);
+  color: var(--white);
+  border-color: var(--pine);
+}
+
+.dia-punto {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  min-width: 10px;
+  height: 10px;
+  padding: 0 2px;
+  border-radius: 999px;
+  background: var(--marigold);
+  color: var(--white);
+  font-size: 0.46rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.citas-dia-panel h4 {
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+/* -------------------- Reservar + Calendario (fusión) -------------------- */
+
+.calendario-card {
+  color: var(--ink);
+  max-width: 340px;
+  padding: 22px;
+}
+
+.calendario-card .mes-actual {
+  color: var(--pine);
+}
+
+.calendario-card .citas-dia-panel h4 {
+  color: var(--paper-soft);
+}
+
+.calendario-card .perfiles-lista li {
+  color: var(--ink);
 }

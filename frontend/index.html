@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Arisvet — Peluquería Canina</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
   <header class="site-header">
@@ -17,51 +21,53 @@
         <img src="img/logo-arisvet.jpg.jpg" alt="Arisvet" class="logo-mark-img">
         <span class="logo-text">Arisvet. Peluqueria Canina</span>
       </a>
-      <nav class="nav">
-        <a href="#servicios">Servicios</a>
-        <a href="#reservar">Reservar</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
+
       <a href="#reservar" class="btn btn-primary btn-small">Reservar cita</a>
     </div>
   </header>
 
   <main>
+
+    <img src="img/logo-arisvet.jpg.jpg" alt="Arisvet Peluquería Canina" class="hero-logo">
+    <div class="hero-mini-galeria" aria-label="A">
+      <div class="mini-card gc1"></div>
+      <div class="mini-card gc2"></div>
+      <div class="mini-card gc3"></div>
+      <div class="mini-card gc4"></div>
+    </div>
+
     <!-- HERO -->
-    <section class="hero">
-      <div class="wrap hero-inner">
-        <div class="hero-copy">
-          <img src="img/logo-arisvet.jpg.jpg" alt="Arisvet Peluquería Canina" class="hero-logo">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <div class="hero-logo-row"></div>
+        <section class="hero">
+
           <p class="eyebrow">Peluquería canina — atención con hora asignada</p>
           <h1>Un baño, un corte,<br>una cola feliz.</h1>
           <p class="hero-lead">
             Baño, corte y cuidado de uñas para perros de cualquier tamaño y pelaje.
             Cada cita tiene su horario, sin esperas eternas en sala.
           </p>
-          <div class="hero-actions">
-            <a href="#reservar" class="btn btn-primary">Reservar cita</a>
-            <a href="#servicios" class="btn btn-ghost">Ver servicios</a>
-          </div>
+          <div class="hero-actions"></div>
         </div>
 
         <div class="hero-ticket" aria-hidden="true">
-          <div class="ticket">
-            <div class="ticket-row">
-              <span class="ticket-label">Cliente</span>
-              <span class="ticket-value">Rocky</span>
+          <div class="hero-ticket">
+            <div class="ticket">
+              <span class="glass-badge">🕐 Cupos disponibles hoy</span>
+              <div class="ticket-row">
+                <form id="form-tarea">
+                  <label>
+                    Nombre del perro
+                    <input type="text" id="input-titulo" placeholder="Ej: Rocky — Baño y corte" required />
+                  </label>
+                  <button type="submit" class="btn btn-primary">Agregar a la agenda</button>
+                </form>
+                <ul id="lista-tareas" class="citas-lista"></ul>
+              </div>
             </div>
-            <div class="ticket-row">
-              <span class="ticket-label">Servicio</span>
-              <span class="ticket-value">Baño + Corte</span>
-            </div>
-            <div class="ticket-row">
-              <span class="ticket-label">Hora</span>
-              <span class="ticket-value">10:30 am</span>
-            </div>
-            <div class="ticket-perf"></div>
-            <div class="ticket-stub">Nº 014</div>
           </div>
-          <span class="glass-badge">🕐 Cupos disponibles hoy</span>
+
         </div>
       </div>
     </section>
@@ -95,36 +101,33 @@
             <span class="servicio-icon">🛁</span>
             <h3>Baño</h3>
             <p>Shampoo según tipo de pelaje, secado y cepillado final.</p>
-            
           </article>
 
           <article class="servicio-card">
             <span class="servicio-icon">✂️</span>
             <h3>Corte</h3>
             <p>Corte a tijera o máquina, a elección según raza y estilo.</p>
-           
           </article>
 
           <article class="servicio-card">
             <span class="servicio-icon">🐾</span>
             <h3>Uñas</h3>
             <p>Corte y limado de uñas, revisión de almohadillas.</p>
-            
           </article>
 
           <article class="servicio-card">
             <span class="servicio-icon">👂</span>
             <h3>Higiene</h3>
             <p>Limpieza de oídos y ojos, cepillado dental básico.</p>
-           
           </article>
         </div>
       </div>
     </section>
 
-    <!-- RESERVAR -->
+    <!-- RESERVAR + CALENDARIO -->
     <section id="reservar" class="reservar">
       <div class="wrap reservar-inner">
+
         <div class="reservar-copy">
           <p class="eyebrow">Reservar</p>
           <h2>Sacá tu turno</h2>
@@ -132,20 +135,29 @@
           <p id="estado" class="estado">Verificando conexión con el sistema de reservas...</p>
         </div>
 
-        <div class="reservar-form-card">
-          <form id="form-tarea">
-            <label>
-              Nombre del perro
-              <input type="text" id="input-titulo" placeholder="Ej: Rocky — Baño y corte" required />
-            </label>
-            <button type="submit" class="btn btn-primary">Agregar a la agenda</button>
-          </form>
+        <div class="reservar-form-card calendario-card">
+          <div class="calendario-nav">
+            <button type="button" id="mes-anterior" class="btn btn-ghost btn-small">&larr; Anterior</button>
+            <span id="mes-actual" class="mes-actual"></span>
+            <button type="button" id="mes-siguiente" class="btn btn-ghost btn-small">Siguiente &rarr;</button>
+          </div>
 
-          <ul id="lista-tareas" class="citas-lista"></ul>
+          <div class="calendario-grid" id="calendario-grid"></div>
+
+          <div class="citas-dia-panel">
+            <h4 id="citas-dia-titulo">Selecciona un día</h4>
+            <ul id="citas-dia-lista" class="perfiles-lista"></ul>
+            <button type="button" id="btn-agendar-dia" class="btn btn-primary btn-small hidden">
+              Agendar cita este día
+            </button>
+          </div>
         </div>
+
       </div>
     </section>
+
   </main>
+
 
   <footer id="contacto" class="site-footer">
     <div class="wrap footer-inner">
@@ -160,6 +172,64 @@
     </div>
   </footer>
 
+  <div id="panel-overlay" class="panel-overlay hidden">
+    <div class="panel-perfil">
+      <button type="button" id="btn-cerrar-panel" class="btn-cerrar" aria-label="Cerrar">&times;</button>
+      <h3>Perfil de la mascota</h3>
+      <form id="form-perfil">
+        <input type="hidden" id="perfil-id" value="">
+        <label>Nombre del perro
+          <input type="text" id="perfil-perro" required>
+        </label>
+        <label>Raza
+          <input type="text" id="perfil-raza" placeholder="Ej: Golden Retriever">
+        </label>
+        <label>Tamaño
+          <select id="perfil-tamano">
+            <option value="Pequeño">Pequeño</option>
+            <option value="Mediano">Mediano</option>
+            <option value="Grande">Grande</option>
+          </select>
+        </label>
+        <label>Nombre del dueño
+          <input type="text" id="perfil-dueno" required>
+        </label>
+        <label>Teléfono del dueño
+          <input type="tel" id="perfil-telefono" placeholder="+56 9 1234 5678">
+        </label>
+        <fieldset class="servicios-fieldset">
+          <legend>Servicios</legend>
+          <label class="check-label">
+            <input type="checkbox" name="perfil-servicio" value="Baño"> Baño
+          </label>
+          <label class="check-label">
+            <input type="checkbox" name="perfil-servicio" value="Corte"> Corte
+          </label>
+          <label class="check-label">
+            <input type="checkbox" name="perfil-servicio" value="Uñas"> Uñas
+          </label>
+          <label class="check-label">
+            <input type="checkbox" name="perfil-servicio" value="Higiene"> Higiene
+          </label>
+        </fieldset>
+        <label>Fecha
+          <input type="date" id="perfil-fecha" required>
+        </label>
+        <label>Hora
+          <input type="time" id="perfil-hora" required>
+        </label>
+
+        <button type="submit" class="btn btn-primary" id="btn-guardar-perfil">Guardar perfil</button>
+      </form>
+
+      <hr class="panel-divider">
+
+      <h4>Perfiles guardados</h4>
+      <ul id="lista-perfiles" class="perfiles-lista"></ul>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
+
 </html>
