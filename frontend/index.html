@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arisvet — Peluquería Canina</title>
+  <title>Airisvet — Peluquería Canina</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap"
@@ -19,16 +20,45 @@
     <div class="wrap header-inner">
       <a href="#" class="logo">
         <img src="img/logo-arisvet.jpg.jpg" alt="Arisvet" class="logo-mark-img">
-        <span class="logo-text">Arisvet. Peluqueria Canina</span>
+        <span class="logo-text">Airisvet. Peluqueria Canina</span>
       </a>
 
       <a href="#reservar" class="btn btn-primary btn-small">Reservar cita</a>
     </div>
   </header>
-
+  
+  <img src="img/logo-arisvet.jpg.jpg" alt="Arisvet Peluquería Canina" class="hero-logo">
   <main>
 
-    <img src="img/logo-arisvet.jpg.jpg" alt="Arisvet Peluquería Canina" class="hero-logo">
+    <main>
+
+  <!-- NUEVA sección de bienvenida (primera cosa que se ve) -->
+  <section class="hero-cutout">
+    <div class="hero-cutout-blob hero-cutout-blob-1"></div>
+    <div class="hero-cutout-blob hero-cutout-blob-2"></div>
+
+    <div class="wrap hero-cutout-inner ">
+      <div class="hero-cutout-copy">
+        <p class="eyebrow">En Arisvet creemos que cada mascota merece sentirse cómoda, querida y lucir increíble. 🐶💖</p>
+        <h1>¡Bienvenidos a Airisvet! 🐾✂️</h1>
+        <h2 class="hero-cutout-note">
+        Somos una peluquería canina dedicada al cuidado y bienestar de tu mejor amigo, ofreciendo servicios de baño, corte, peluquería y cuidado estético, siempre con cariño, paciencia y atención personalizada.
+        </h2>
+       
+      </div>
+      <img src="img/marcosiap-removebg-preview.png" alt="Perro recién bañado en Arisvet" class="hero-cutout-img">
+    </div>
+  </section>
+
+
+  <section class="hero">
+  
+  </section>
+
+  <!-- STATS, TRANSFORMACIÓN, SERVICIOS, etc. — todo igual -->
+
+</main>
+
     <div class="hero-mini-galeria" aria-label="A">
       <div class="mini-card gc1"></div>
       <div class="mini-card gc2"></div>
@@ -49,27 +79,27 @@
             Cada cita tiene su horario, sin esperas eternas en sala.
           </p>
           <div class="hero-actions"></div>
-        </div>
+      </div>
 
-        <div class="hero-ticket" aria-hidden="true">
-          <div class="hero-ticket">
-            <div class="ticket">
-              <span class="glass-badge">🕐 Cupos disponibles hoy</span>
-              <div class="ticket-row">
-                <form id="form-tarea">
-                  <label>
-                    Nombre del perro
-                    <input type="text" id="input-titulo" placeholder="Ej: Rocky — Baño y corte" required />
-                  </label>
-                  <button type="submit" class="btn btn-primary">Agregar a la agenda</button>
-                </form>
-                <ul id="lista-tareas" class="citas-lista"></ul>
-              </div>
+      <div class="hero-ticket" aria-hidden="true">
+        <div class="hero-ticket">
+          <div class="ticket">
+            <span class="glass-badge">🕐 Cupos disponibles hoy</span>
+            <div class="ticket-row">
+              <form id="form-tarea">
+                <label>
+                  Nombre del perro
+                  <input type="text" id="input-titulo" placeholder="Ej: Rocky — Baño y corte" required />
+                </label>
+                <button type="submit" class="btn btn-primary">Agregar a la agenda</button>
+              </form>
+              <ul id="lista-tareas" class="citas-lista"></ul>
             </div>
           </div>
-
         </div>
+
       </div>
+    </div>
     </section>
 
     <!-- STATS -->
@@ -86,6 +116,30 @@
         <div class="stat">
           <span class="stat-num">30 min</span>
           <span class="stat-label">promedio por cita</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRANSFORMACIÓN 1 (imagen a la derecha) -->
+    <section class="transformacion">
+      <div class="wrap transformacion-inner">
+        <div class="transformacion-copy">
+          <p class="eyebrow">Resultados reales</p>
+          <h2>Se nota la diferencia<br>desde el primer baño.</h2>
+          <p class="transformacion-lead">
+            Pelo limpio, suave y sin enredos. Cada perrito sale con menos caída de pelo
+            y mucha más comodidad.
+          </p>
+          
+        </div>
+        <div class="transformacion-imagen">
+          <div class="antes-despues-card">
+            <div class="ad-foto">
+              <img src="img/antesdespues2.jpg" alt="Perro antes del baño y corte">
+             
+            </div>
+            
+          </div>
         </div>
       </div>
     </section>
@@ -120,6 +174,30 @@
             <h3>Higiene</h3>
             <p>Limpieza de oídos y ojos, cepillado dental básico.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRANSFORMACIÓN 2 (imagen a la izquierda) -->
+    <section class="transformacion transformacion--izquierda">
+      <div class="wrap transformacion-inner">
+        <div class="transformacion-imagen">
+          <div class="antes-despues-card">
+            <div class="ad-foto">
+              <img src="img/antesdespues.jpg" alt="Perro antes del baño y corte">
+              
+            </div>
+           
+          </div>
+        </div>
+        <div class="transformacion-copy">
+          <p class="eyebrow">Antes de venir</p>
+          <h2>Del pelo opaco y<br>enredado, a brillante.</h2>
+          <p class="transformacion-lead">
+            Aspecto saludable y bien cuidado en cada visita. Ven a conocer la diferencia
+            con tu propio perrito.
+          </p>
+         
         </div>
       </div>
     </section>
@@ -167,7 +245,25 @@
       </div>
       <div class="footer-info">
         <p>Lunes a sábado, 9:00–18:00</p>
-        <p>+51973232677</p>
+        <div class="social-icons">
+          <a href="https://facebook.com/Moises Flores" target="_blank" rel="noopener noreferrer" class="social-icon"
+            aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://wa.me/51973232677" target="_blank" rel="noopener noreferrer" class="social-icon"
+            aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a href="https://instagram.com/moises71120" target="_blank" rel="noopener noreferrer" class="social-icon"
+            aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://tiktok.com/@moises.flores48" target="_blank" rel="noopener noreferrer" class="social-icon"
+            aria-label="TikTok">
+            <i class="fab fa-tiktok"></i>
+          </a>
+        </div>
+        
       </div>
     </div>
   </footer>

@@ -3,33 +3,26 @@
    Sistema de diseño: "el comprobante"
    ========================================================= */
 
+
 :root {
-  --paper: #F1EEE3;
-  --paper-soft: #F8F6EF;
-  --pine: #1E3B36;
-  --pine-soft: #2C4F49;
-  --marigold: #DFA23C;
-  --hex: #4ad8d5;
-  --sage: #A9BFAE;
-  --sage-line: #C9D3C5;
-  --ink: #22302B;
-  --ink-soft: #5B6B63;
+  --paper: #EAF7FB;
+  --paper-soft: #F5FBFD;
+  --pine: #16213E;
+  --pine-soft: #223159;
+
+  --marigold: #EC4899;
+  --marigold-soft: rgba(236, 72, 153, 0.16);
   --white: #FFFFFF;
+  --sage: #4ECDC4;
+  --sage-line: #BFEAE6;
+  --ink: #16213E;
+  --ink-soft: #55607A;
 
-  --font-display: "Fraunces", serif;
-  --font-body: "Work Sans", sans-serif;
+  --mostaza: #F4B93E;
 
-  --radius-sm: 10px;
-  --radius-md: 16px;
-  --radius-lg: 26px;
+  /* el resto de variables (fuentes, radios, sombras) se quedan igual */
 
-  --shadow-card: 0 12px 30px -14px rgba(30, 59, 54, 0.28);
-  --shadow-ticket: 0 24px 48px -18px rgba(30, 59, 54, 0.45);
 
-  --glass-bg: rgba(255, 255, 255, 0.14);
-  --glass-bg-strong: rgba(255, 255, 255, 0.22);
-  --glass-border: rgba(255, 255, 255, 0.38);
-  --glass-blur: 18px;
 }
 
 * { box-sizing: border-box; }
@@ -51,7 +44,10 @@ html {
 body {
   margin: 0;
   font-family: var(--font-body);
-  background: var(--paper);
+  background-color: var(--paper);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg fill='%2322302B' fill-opacity='0.3'%3E%3Cellipse cx='42' cy='62' rx='10' ry='13'/%3E%3Cellipse cx='26' cy='46' rx='6' ry='8'/%3E%3Cellipse cx='42' cy='38' rx='6' ry='8'/%3E%3Cellipse cx='58' cy='46' rx='6' ry='8'/%3E%3Cellipse cx='60' cy='63' rx='6' ry='8' transform='rotate(20 60 63)'/%3E%3Cg transform='translate(140,150) rotate(-25)'%3E%3Crect x='0' y='6' width='42' height='9' rx='4.5'/%3E%3Ccircle cx='0' cy='6' r='7'/%3E%3Ccircle cx='0' cy='15' r='7'/%3E%3Ccircle cx='42' cy='6' r='7'/%3E%3Ccircle cx='42' cy='15' r='7'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 220px 220px;
   color: var(--ink);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -112,8 +108,8 @@ a { color: inherit; text-decoration: none; }
 }
 
 .btn-primary {
-  background: var(--hex);
-  color: var(--white);
+  
+  color: #050000;
   box-shadow: 0 10px 22px -10px rgba(216, 101, 74, 0.65);
 }
 
@@ -123,7 +119,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .btn-ghost {
-  background: transparent;
+  background: #19b0a5;
   color: var(--pine);
   border-color: var(--pine);
 }
@@ -281,7 +277,7 @@ a { color: inherit; text-decoration: none; }
   position: relative;
   width: 320px;
   background:
-    linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.6)),
+    linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.157)),
     url('img/logo-arisvet.jpg.jpg');
   background-size: cover;
   background-position: center;
@@ -475,10 +471,10 @@ a { color: inherit; text-decoration: none; }
 }
 
 .servicio-card {
-  background: var(--paper-soft);
+  background: #c6d4d8;
   border: 1px solid var(--sage-line);
   border-radius: var(--radius-md);
-  padding: 28px 22px;
+  padding:48px 32px;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
@@ -559,7 +555,7 @@ a { color: inherit; text-decoration: none; }
   background-size: cover;
   background-position: center;
   box-shadow: var(--shadow-card);
-  filter: grayscale(85%) brightness(0.88);
+  
   transition: flex 0.7s cubic-bezier(.25, 1, .5, 1),
               filter 0.7s cubic-bezier(.25, 1, .5, 1);
 }
@@ -572,10 +568,10 @@ a { color: inherit; text-decoration: none; }
 
 /* Reemplazá estas URLs por las fotos reales de los perros atendidos.
    Podés usar rutas relativas, ej: url('img/galeria/1.jpg') */
-.gc1 { background-image: url('img/esta-sirve2.jpg'); }
-.gc2 { background-image: url('img/esta-sirve.jpg'); }
-.gc3 { background-image: url('img/IMG-20251102-WA0000.jpg'); }
-.gc4 { background-image: url('img/remplazo.jpg'); }
+.gc1 { background-image: url('img/marcosia3.jpg'); }
+.gc2 { background-image: url('img/marcosia2.jpg'); }
+.gc3 { background-image: url('img/marcosia4.jpg'); }
+.gc4 { background-image: url('img/marcosia5.jpg'); }
 
 
 @media (max-width: 640px) {
@@ -639,7 +635,7 @@ a { color: inherit; text-decoration: none; }
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-columns: 2fr 1fr;
   gap: 56px;
   align-items: start;
 }
@@ -770,7 +766,7 @@ a { color: inherit; text-decoration: none; }
 /* -------------------- Footer -------------------- */
 
 .site-footer {
-  background: var(--pine);
+  background:#0b0e18 ;
   color: var(--sage);
   padding: 40px 0;
 }
@@ -1128,4 +1124,187 @@ a { color: inherit; text-decoration: none; }
 
 .calendario-card .perfiles-lista li {
   color: var(--ink);
+}
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 39px;
+  height: 51px;
+  border-radius: 50%;
+  background: #050b0a;
+  color: var(--paper);
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease;
+}
+
+.social-icon:hover {
+  background: var(--marigold);
+  transform: translateY(-4px) scale(1.08);
+}
+/* -------------------- Transformación (Antes/Después) -------------------- */
+
+.transformacion {
+  padding: 90px 0;
+}
+
+.transformacion-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+/* Variante "izquierda": la imagen pasa al primer lugar */
+.transformacion--izquierda .transformacion-imagen {
+  order: -1;
+}
+
+.transformacion-copy h2 {
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+  margin: 14px 0 18px;
+}
+
+.transformacion-lead {
+  display: block;
+  color: var(--ink-soft);
+  max-width: 42ch;
+  margin-bottom: 26px;
+}
+
+.antes-despues-card {
+  display: flex;
+  gap: 10px;
+  background: var(--glass-bg-strong);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  box-shadow: var(--shadow-ticket);
+  backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+}
+
+.ad-foto {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  display: block;
+}
+
+.ad-foto img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  object-position: center;
+  display: block;
+}
+
+.ad-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--paper-soft);
+}
+
+.ad-tag-antes {
+  background: var(--ink-soft);
+}
+
+.ad-tag-despues {
+  background: var(--pine);
+}
+
+@media (max-width: 860px) {
+  .transformacion-inner {
+    grid-template-columns: 1fr;
+  }
+  .transformacion--izquierda .transformacion-imagen {
+    order: 0;
+  }
+}
+.hero-cutout {
+  position: relative;
+  background: var(--pine);
+  padding: 90px 0 0;
+  overflow: hidden;
+  min-height: 560px;
+}
+
+.hero-cutout-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.hero-cutout-blob-1 {
+  width: 380px; height: 380px;
+  background: var(--sage);
+  opacity: 0.25;
+  top: -100px; left: -80px;
+}
+
+.hero-cutout-blob-2 {
+  width: 320px; height: 320px;
+  background: var(--marigold);
+  opacity: 0.2;
+  bottom: -140px; right: 10%;
+}
+
+.hero-cutout-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: end;
+}
+
+.hero-cutout-copy .eyebrow { color: var(--sage); }
+.hero-cutout-copy .eyebrow::before { background: var(--marigold); }
+
+.hero-cutout-copy h1 {
+  color: var(--white);
+  font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+  line-height: 1.08;
+  margin: 14px 0 20px;
+}
+
+.hero-cutout-note {
+  color: var(--sage);
+  max-width: 38ch;
+  margin-bottom: 28px;
+}
+
+.hero-cutout-img {
+  width: 100%;
+  max-width: 480px;
+  align-items:end;
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.35));
+}
+
+@media (max-width: 860px) {
+  .hero-cutout-inner { grid-template-columns: 1fr; text-align: center; }
+  .hero-cutout-copy .eyebrow, .hero-cutout-note { margin-left: auto; margin-right: auto; }
+  .hero-cutout-img { justify-self: center; max-width: 300px; margin-top: 20px; }
 }
