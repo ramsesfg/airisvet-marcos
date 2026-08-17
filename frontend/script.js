@@ -319,3 +319,30 @@ document.querySelectorAll(".mini-card").forEach((card) => {
     if (!yaActiva) card.classList.add("activa");
   });
 });
+// --- Dropdown "Reservar" en navbar ---
+const dropdownToggle = document.getElementById('dropdown-toggle');
+const dropdownWrap = dropdownToggle ? dropdownToggle.closest('.nav-dropdown') : null;
+
+if (dropdownToggle && dropdownWrap) {
+  dropdownToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = dropdownWrap.classList.toggle('active');
+    dropdownToggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  // Cierra el dropdown al hacer click fuera
+  document.addEventListener('click', (e) => {
+    if (!dropdownWrap.contains(e.target)) {
+      dropdownWrap.classList.remove('active');
+      dropdownToggle.setAttribute('aria-expanded', false);
+    }
+  });
+
+  // Cierra al hacer click en un link del dropdown
+  dropdownWrap.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      dropdownWrap.classList.remove('active');
+      dropdownToggle.setAttribute('aria-expanded', false);
+    });
+  });
+}

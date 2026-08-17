@@ -1054,7 +1054,7 @@ a { color: inherit; text-decoration: none; }
   text-align: center;
   font-size: 0.62rem;
   font-weight: 600;
-  color: var(--ink-soft);
+  color: white;
   padding-bottom: 3px;
 }
 
@@ -1115,7 +1115,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .calendario-card .mes-actual {
-  color: var(--pine);
+  color: white;
 }
 
 .calendario-card .citas-dia-panel h4 {
@@ -1209,7 +1209,6 @@ a { color: inherit; text-decoration: none; }
   left: 0;
   width: 100%;
   height: 100%;
-  
   object-position: center;
   display: block;
 }
@@ -1245,7 +1244,7 @@ a { color: inherit; text-decoration: none; }
 }
 .hero-cutout {
   position: relative;
-  background: var(--pine);
+  
   padding: 90px 0 0;
   overflow: hidden;
   min-height: 560px;
@@ -1298,13 +1297,111 @@ a { color: inherit; text-decoration: none; }
 
 .hero-cutout-img {
   width: 100%;
-  max-width: 480px;
   align-items:end;
-  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.35));
+
 }
 
 @media (max-width: 860px) {
   .hero-cutout-inner { grid-template-columns: 1fr; text-align: center; }
   .hero-cutout-copy .eyebrow, .hero-cutout-note { margin-left: auto; margin-right: auto; }
   .hero-cutout-img { justify-self: center; max-width: 300px; margin-top: 20px; }
+}
+/* -------------------- Dropdown navbar -------------------- */
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+.nav-dropdown-arrow {
+  font-size: 0.7rem;
+  transition: transform 0.2s ease;
+}
+
+.nav-dropdown.active .nav-dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background:#00ffff42;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-ticket);
+  backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 60;
+}
+
+.nav-dropdown.active .nav-dropdown-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown-menu a {
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  color: var(--pine);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.nav-dropdown-menu a:hover {
+  background: var(--marigold-soft);
+  color: var(--marigold);
+}
+
+@media (max-width: 760px) {
+  .nav-dropdown-menu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    max-height: 0;
+    padding: 0 0 0 14px;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+
+  .nav-dropdown.active .nav-dropdown-menu {
+    max-height: 200px;
+    padding-top: 6px;
+  }
+
+  .nav-dropdown-arrow {
+    transform: none;
+  }
+
+  .nav-dropdown.active .nav-dropdown-arrow {
+    transform: rotate(180deg);
+  }
 }
