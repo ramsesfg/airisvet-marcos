@@ -1,8 +1,6 @@
 const API_URL = "http://127.0.0.1:5000/api";
 
 const estadoEl = document.getElementById("estado");
-const formTicketEl = document.getElementById("form-tarea");
-const inputTicketEl = document.getElementById("input-titulo");
 
 const overlayEl = document.getElementById("panel-overlay");
 const btnCerrarEl = document.getElementById("btn-cerrar-panel");
@@ -205,12 +203,23 @@ function renderizarCalendario() {
       celda.appendChild(punto);
     }
 
-    celda.onclick = () => {
+        celda.onclick = () => {
       diaSeleccionado = fechaISO;
       renderizarCalendario();
-      mostrarCitasDelDia(fechaISO);
-    };
 
+      if (citasPorFecha[fechaISO]) {
+        // Día con citas ya agendadas: mostramos el panel primero
+        mostrarCitasDelDia(fechaISO);
+      } else {
+        // Día disponible: abrimos el modal directo con la fecha ya cargada
+        citasDiaTituloEl.textContent = `Citas del ${fechaISO}`;
+        citasDiaListaEl.innerHTML = "";
+        btnAgendarDiaEl.classList.add("hidden");
+        cerrarPanel();
+        perfilFechaEl.value = fechaISO;
+        abrirPanel();
+      }
+    };
     calendarioGridEl.appendChild(celda);
   }
 }
@@ -270,14 +279,6 @@ mesSiguienteEl.addEventListener("click", () => {
   renderizarCalendario();
 });
 
-formTicketEl.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const nombre = inputTicketEl.value.trim();
-  if (!nombre) return;
-  perfilPerroEl.value = nombre;
-  abrirPanel();
-  inputTicketEl.value = "";
-});
 
 formPerfilEl.addEventListener("submit", (e) => {
   e.preventDefault();
