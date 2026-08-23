@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from flask_cors import CORS
 from dotenv import load_dotenv
 import sqlite3
@@ -8,8 +8,8 @@ load_dotenv()
 
 app = Flask(__name__)
 
-FRONTEND_ORIGIN = os.getenv("FRONTEND_ORIGIN", "http://127.0.0.1:5500")
-CORS(app, origins=[FRONTEND_ORIGIN])
+# FRONTEND_ORIGIN = os.getenv("FRONTEND_ORIGIN", "http://127.0.0.1:5500")
+# CORS(app, origins=[FRONTEND_ORIGIN])
 
 DB_PATH = os.path.join(os.path.dirname(__file__), "arisvet.db")
 
@@ -47,6 +47,9 @@ def init_db():
     conn.close()
 init_db()
 
+@app.route("/")
+def home():
+    return render_template("index.html")
 
 @app.route("/api/health", methods=["GET"])
 def health():

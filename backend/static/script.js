@@ -347,3 +347,13 @@ if (dropdownToggle && dropdownWrap) {
     });
   });
 }
+const hamburgerToggle = document.getElementById('hamburger-toggle');
+const navMenu = document.getElementById('nav-menu');
+
+if (hamburgerToggle && navMenu) {
+  hamburgerToggle.addEventListener('click', () => {
+    const isOpen = navMenu.classList.toggle('nav-open');
+    hamburgerToggle.classList.toggle('active', isOpen);
+    hamburgerToggle.setAttribute('aria-expanded', isOpen);
+  });
+}
