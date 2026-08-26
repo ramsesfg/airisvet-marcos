@@ -641,13 +641,13 @@ a { color: inherit; text-decoration: none; }
 }
 
 .reservar h2 {
-  color: var(--white);
+  color: black;
   font-size: clamp(1.9rem, 3vw, 2.5rem);
   margin-bottom: 14px;
 }
 
 .reservar-copy p:not(.eyebrow):not(.estado) {
-  color: var(--sage);
+  color: black;
   max-width: 40ch;
   margin-bottom: 22px;
 }
@@ -767,7 +767,7 @@ a { color: inherit; text-decoration: none; }
 
 .site-footer {
   background:#0b0e18 ;
-  color: var(--sage);
+  color: #FFFFFF;
   padding: 40px 0;
 }
 
@@ -1014,7 +1014,7 @@ a { color: inherit; text-decoration: none; }
   background: rgba(30, 59, 54, 0.08);
 }
 /* -------------------- Calendario -------------------- */
-/* -------------------- Calendario -------------------- */
+
 
 .calendario {
   padding: 40px 0;
@@ -1115,8 +1115,8 @@ a { color: inherit; text-decoration: none; }
 }
 
 .calendario-card .mes-actual {
-
-  color: #ec4899;;
+  
+  color: #223159;
 }
 
 .calendario-card .citas-dia-panel h4 {
@@ -1358,7 +1358,7 @@ a { color: inherit; text-decoration: none; }
 .nav-dropdown.active .nav-dropdown-menu {
   opacity: 1;
   pointer-events: auto;
-  transform: translateX(-50%) translateY(0);
+ 
 }
 
 .nav-dropdown-menu a {
@@ -1409,7 +1409,7 @@ a { color: inherit; text-decoration: none; }
    ========================================================= */
 
 .calendario-grid .dia-celda {
-  background: linear-gradient(145deg, var(--paper-soft), #c75c5c);
+  background: linear-gradient(145deg, var(--paper-soft), #5c6ac7);
   border: 1px solid var(--sage-line);
   box-shadow: 0 2px 6px -3px rgba(22, 33, 62, 0.25);
   transition: transform 0.22s cubic-bezier(.34,1.56,.64,1),
@@ -1445,16 +1445,16 @@ a { color: inherit; text-decoration: none; }
 }
 
 .calendario-nav .btn-ghost {
-  background: linear-gradient(135deg, var(--sage), #2fb8ac);
+  background: linear-gradient(135deg, #050000, #16213e);
   border: none;
-  color: var(--pine);
+  color: #FFFFFF;
   font-weight: 700;
   transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .calendario-nav .btn-ghost:hover {
   background: linear-gradient(135deg, var(--pine), var(--pine-soft));
-  color: #ec4899;
+  color:#223159;
   transform: translateY(-1px);
 }
 
@@ -1467,7 +1467,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 #btn-agendar-dia {
-  background: linear-gradient(135deg, var(--marigold), var(--mostaza));
+  background: linear-gradient(135deg, #050000, #223159);
   border: none;
   color: var(--white);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -1612,5 +1612,36 @@ img {
 
   .nav.nav-open {
     display: block;
+  }
+}
+/* -------------------- Fix visual: panel hamburguesa mobile -------------------- */
+@media (max-width: 760px) {
+  .nav.nav-open {
+    background: var(--white);
+    border-top: 1px solid var(--sage-line);
+    box-shadow: 0 16px 28px -18px rgba(30, 59, 54, 0.45);
+  }
+
+  .nav .nav-dropdown {
+    width: 100%;
+  }
+
+  .nav .nav-dropdown-toggle {
+    width: 100%;
+    justify-content: space-between;
+    padding: 14px 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--pine);
+    border-bottom: 1px solid var(--sage-line);
+  }
+
+  .nav-dropdown.active .nav-dropdown-toggle {
+    border-bottom-color: transparent;
+  }
+
+  .nav-dropdown-menu a {
+    padding: 12px 8px;
+    font-size: 0.95rem;
   }
 }
