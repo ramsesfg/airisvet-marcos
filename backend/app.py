@@ -3,6 +3,7 @@ from flask_cors import CORS
 from dotenv import load_dotenv
 import sqlite3
 import os
+from notificaciones import enviar_notificacion_cita
 
 load_dotenv()
 
@@ -91,6 +92,17 @@ def crear_perfil():
     conn.commit()
     nuevo = conn.execute("SELECT * FROM perfiles WHERE id = ?", (cur.lastrowid,)).fetchone()
     conn.close()
+
+    # Enviar notificación por correo al admin (no bloquea la respuesta si falla)
+    enviar_notificacion_cita(
+        nombre_mascota=perro_nombre,
+        nombre_dueno=dueno_nombre,
+        fecha=data.get("fecha", ""),
+        hora=data.get("hora", ""),
+        servicio=data.get("servicio", ""),
+    )
+
+
     return jsonify(dict(nuevo)), 201
 
 @app.route("/api/perfiles/<int:perfil_id>", methods=["PUT"])

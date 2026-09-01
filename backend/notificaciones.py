@@ -18,7 +18,7 @@ def enviar_notificacion_cita(nombre_mascota, nombre_dueno, fecha, hora, servicio
 
     asunto = f"🐾 Nueva cita agendada - {nombre_mascota}"
     cuerpo = f"""
-    Se ha creado una nueva cita en Arisvet:
+    Se ha creado una nueva cita en Airisvet:
 
     Mascota: {nombre_mascota}
     Dueño: {nombre_dueno}
