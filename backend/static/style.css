@@ -1221,6 +1221,7 @@ a { color: inherit; text-decoration: none; }
   left: 0;
   width: 100%;
   height: 100%;
+   object-fit: cover;  
   object-position: center;
   display: block;
 }
@@ -1455,7 +1456,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .calendario-nav .btn-ghost {
-  background: linear-gradient(135deg, #050000, #16213e);
+  background: linear-gradient(135deg,#4ecdc4, #f4b93e);
   border: none;
   color: #FFFFFF;
   font-weight: 700;
@@ -1463,8 +1464,8 @@ a { color: inherit; text-decoration: none; }
 }
 
 .calendario-nav .btn-ghost:hover {
-  background: linear-gradient(135deg, var(--pine), var(--pine-soft));
-  color:#223159;
+  background: linear-gradient(135deg, #4ecdc4);
+  color:#F4B93E;
   transform: translateY(-1px);
 }
 
@@ -1477,7 +1478,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 #btn-agendar-dia {
-  background: linear-gradient(135deg, #050000, #223159);
+  background: linear-gradient(135deg,#4ecdc4, #f4b93e);
   border: none;
   color: var(--white);
   transition: transform 0.2s ease, box-shadow 0.2s ease;

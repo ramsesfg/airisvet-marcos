@@ -45,55 +45,47 @@
     </div>
   </header>
   <main>
+    <!-- NUEVA sección de bienvenida (primera cosa que se ve) -->
+    <section class="hero-cutout">
+      <div class="hero-cutout-blob hero-cutout-blob-1"></div>
 
-    <main>
-
-      <!-- NUEVA sección de bienvenida (primera cosa que se ve) -->
-      <section class="hero-cutout">
-        <div class="hero-cutout-blob hero-cutout-blob-1"></div>
-
-        <img src="{{ url_for('static', filename='img/bienvenia-airisvet.png') }}" alt="Perro recién bañado en Arisvet"
-          class="hero-cutout-img">
-      </section>
+      <img src="{{ url_for('static', filename='img/Fondo.png') }}" alt="Perro recién bañado en Arisvet"
+        class="hero-cutout-img">
+    </section>
 
 
-      <!-- HERO -->
-      <div class="wrap hero-inner">
-        <div class="hero-copy">
-          <div class="hero-logo-row"></div>
-          <section class="hero">
+    <!-- HERO -->
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <div class="hero-logo-row"></div>
+        <section class="hero">
 
-            <p class="eyebrow"> </p>
-            <h2> <b> Peluquería canina atención con hora asignada.</b> </h2>
-            <h1>Un baño, un corte,<br>una cola feliz.</h1>
-            <p class="hero-lead">
-              <b>Baño, corte y cuidado de uñas para perros de cualquier tamaño y pelaje.</b>
-              <b>Cada cita tiene su horario, sin esperas eternas en sala.</b>
-            </p>
-            <div class="hero-actions"></div>
-        </div>
-        <div class="hero-flyer-wrap">
-          <img src="{{ url_for('static', filename='img/Flyer Anuncio Peluquería Canina Orgánico Beige.png') }}"
-            alt="Flyer Arisvet peluquería canina" class="hero-flyer-img">
-        </div>
+          <p class="eyebrow"> </p>
+          <h2> <b> Peluquería canina atención con hora asignada.</b> </h2>
+          <h1>Un baño, un corte,<br>una cola feliz.</h1>
+          <p class="hero-lead">
+            <b>Baño, corte y cuidado de uñas para perros de cualquier tamaño y pelaje.</b>
+            <b>Cada cita tiene su horario, sin esperas eternas en sala.</b>
+          </p>
+        </section>
+        <div class="hero-actions"></div>
       </div>
+      <div class="hero-flyer-wrap">
+        <img src="{{ url_for('static', filename='img/Flyer Anuncio Peluquería Canina Orgánico Beige.png') }}"
+          alt="Flyer Arisvet peluquería canina" class="hero-flyer-img">
       </div>
-      </section>
-      <section class="hero">
-        <div class="hero-mini-galeria" aria-label="A">
-          <div class="mini-card gc1"></div>
-          <div class="mini-card gc2"></div>
-          <div class="mini-card gc3"></div>
-          <div class="mini-card gc4"></div>
-        </div>
+    </div>
+    </div>
 
-      </section>
+    <section class="hero">
+      <div class="hero-mini-galeria" aria-label="A">
+        <div class="mini-card gc1"></div>
+        <div class="mini-card gc2"></div>
+        <div class="mini-card gc3"></div>
+        <div class="mini-card gc4"></div>
+      </div>
 
-      <!-- STATS, TRANSFORMACIÓN, SERVICIOS, etc. — todo igual -->
-
-    </main>
-
-
+    </section>
 
     <!-- STATS -->
     <section class="stats">
@@ -112,7 +104,6 @@
         </div>
       </div>
     </section>
-
     <!-- TRANSFORMACIÓN 1 (imagen a la derecha) -->
     <section class="transformacion">
       <div class="wrap transformacion-inner">
@@ -124,15 +115,18 @@
             <b> limpio, suave y sin enredos. Cada perrito sale con menos caída de pelo
               y mucha más comodidad.</b>
           </p>
-
         </div>
         <div class="transformacion-imagen">
           <div class="antes-despues-card">
             <div class="ad-foto">
-              <img src="{{ url_for('static', filename='img/Antes.png') }}" alt="Perro antes del baño y corte">
-
+              <span class="ad-tag ad-tag-antes">Antes</span>
+              <img src="{{ url_for('static', filename='img/antes-poodle.png') }}" alt="Perro antes del baño y corte">
             </div>
-
+            <div class="ad-foto">
+              <span class="ad-tag ad-tag-despues">Después</span>
+              <img src="{{ url_for('static', filename='img/despues-poodle.png') }}"
+                alt="Perro después del baño y corte">
+            </div>
           </div>
         </div>
       </div>
@@ -177,17 +171,20 @@
         </div>
       </div>
     </section>
-
     <!-- TRANSFORMACIÓN 2 (imagen a la izquierda) -->
     <section class="transformacion transformacion--izquierda">
       <div class="wrap transformacion-inner">
         <div class="transformacion-imagen">
           <div class="antes-despues-card">
             <div class="ad-foto">
-              <img src="{{ url_for('static', filename='img/Directora en Funciones (1).png') }}"
-                alt="Perro antes del baño y corte">
+              <span class="ad-tag ad-tag-antes">Antes</span>
+              <img src="{{ url_for('static', filename='img/cocker-antes.png') }}" alt="Cocker antes del baño y corte">
             </div>
-
+            <div class="ad-foto">
+              <span class="ad-tag ad-tag-despues">Después</span>
+              <img src="{{ url_for('static', filename='img/cocker-despues.png') }}"
+                alt="Cocker después del baño y corte">
+            </div>
           </div>
         </div>
         <div class="transformacion-copy">
@@ -198,7 +195,6 @@
             <b>saludable y bien cuidado en cada visita. Ven a conocer la diferencia
               con tu propio perrito.</b>
           </p>
-
         </div>
       </div>
     </section>
