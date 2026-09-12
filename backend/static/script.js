@@ -81,24 +81,7 @@ function renderizarPerfiles(perfiles) {
     const info = document.createElement("span");
     info.textContent = `${p.perro_nombre} — ${p.servicio || "sin servicio"} — ${p.fecha || "sin fecha"} ${p.hora || ""} — dueño: ${p.dueno_nombre}`;
 
-    const acciones = document.createElement("div");
-    acciones.className = "acciones";
-
-    const btnEditar = document.createElement("button");
-    btnEditar.textContent = "Editar";
-    btnEditar.type = "button";
-    btnEditar.onclick = () => cargarEnFormulario(p);
-
-    const btnBorrar = document.createElement("button");
-    btnBorrar.textContent = "Eliminar";
-    btnBorrar.type = "button";
-    btnBorrar.onclick = () => eliminarPerfil(p.id);
-
-    acciones.appendChild(btnEditar);
-    acciones.appendChild(btnBorrar);
-
     li.appendChild(info);
-    li.appendChild(acciones);
     listaPerfilesEl.appendChild(li);
   });
 }
@@ -240,23 +223,13 @@ function mostrarCitasDelDia(fechaISO) {
     return;
   }
 
-  citas.forEach((p) => {
+   citas.forEach((p) => {
     const li = document.createElement("li");
 
     const info = document.createElement("span");
     info.textContent = `${p.hora || "sin hora"} — ${p.perro_nombre} (${p.servicio || "sin servicio"})`;
 
-    const acciones = document.createElement("div");
-    acciones.className = "acciones";
-
-    const btnEditar = document.createElement("button");
-    btnEditar.textContent = "Editar";
-    btnEditar.type = "button";
-    btnEditar.onclick = () => cargarEnFormulario(p);
-
-    acciones.appendChild(btnEditar);
     li.appendChild(info);
-    li.appendChild(acciones);
     citasDiaListaEl.appendChild(li);
   });
 }
