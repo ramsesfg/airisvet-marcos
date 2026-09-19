@@ -289,7 +289,7 @@ a { color: inherit; text-decoration: none; }
   width: 320px;
   background:
     linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.157)),
-    url('img/logo-arisvet.jpg.jpg');
+    url('img/logo2.png');
   background-size: cover;
   background-position: center;
   border-radius: var(--radius-md);
