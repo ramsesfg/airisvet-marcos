@@ -52,12 +52,10 @@
       <img src="{{ url_for('static', filename='img/imagen mejorada y profesional.jpg') }}"
         alt="Perro recién bañado en Arisvet" class="hero-cutout-img">
     </section>
-
- <!-- SERVICIOS -->
     <section id="servicios" class="servicios">
       <div class="wrap">
         <p class="eyebrow"></p>
-      
+
         <div class="servicios-grid">
           <article class="servicio-card servicio--azul">
             <span class="servicio-icon">
@@ -176,31 +174,38 @@
         </div>
       </div>
     </section>
-    
-    <!-- TRANSFORMACIÓN 2 (imagen a la izquierda) -->
-    <section class="transformacion transformacion--izquierda">
-      <div class="wrap transformacion-inner">
-        <div class="transformacion-imagen">
-          <div class="antes-despues-card">
-            <div class="ad-foto">
-              <span class="ad-tag ad-tag-antes">Antes</span>
+    <section class="ps-section">
+      <div class="wrap ps-inner">
+
+        <div class="ps-media">
+          <div class="ps-fotos">
+            <figure class="ps-foto">
+              <span class="ps-tag ps-tag--antes">Antes</span>
               <img src="{{ url_for('static', filename='img/new2.png') }}" alt="Cocker antes del baño y corte">
-            </div>
-            <div class="ad-foto">
-              <span class="ad-tag ad-tag-despues">Después</span>
+            </figure>
+            <figure class="ps-foto">
+              <span class="ps-tag ps-tag--despues">Después</span>
               <img src="{{ url_for('static', filename='img/new.png') }}" alt="Cocker después del baño y corte">
-            </div>
+            </figure>
           </div>
+          <p class="ps-lema">Una cola feliz<br>en cada visita <i class="fa-regular fa-heart"></i></p>
         </div>
-        <div class="transformacion-copy">
-          <p class="eyebrow"> </p>
-          <h1><b>Antes de venir</b> </h1>
-          <h2>Del pelo opaco y<br>enredado, a brillante.</h2>
-          <p class="transformacion-lead">
-            <b>saludable y bien cuidado en cada visita. Ven a conocer la diferencia
-              con tu propio perrito.</b>
+
+        <div class="ps-copy">
+          <p class="ps-kicker">Antes de venir</p>
+          <h2 class="ps-titulo">
+            <i class="fa-solid fa-paw"></i>
+            <span>Del pelo opaco y enredado, a brillante.</span>
+          </h2>
+          <p class="ps-texto">
+            Saludable y bien cuidado en cada visita. Ven a conocer la diferencia con tu propio perrito.
           </p>
+          <ul class="ps-lista">
+            <li><i class="fa-solid fa-check"></i> Cada cita con horario asignado, sin esperas</li>
+            <li><i class="fa-solid fa-check"></i> Para perros de cualquier tamaño y pelaje</li>
+          </ul>
         </div>
+
       </div>
     </section>
 
