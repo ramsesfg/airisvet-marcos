@@ -1684,8 +1684,8 @@ img {
   margin: 0 0 16px;
   border-radius: 50%;
   font-size: 1.3rem;
-  background: var(--srv-fondo);
-  color: var(--srv-color);
+  background: var(--srv-fondo, #e3efff);
+  color: var(--srv-color, #2f6fe4);
 }
  
 .servicios .servicio-card h3 {
