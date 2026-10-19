@@ -1656,3 +1656,61 @@ img {
     font-size: 0.95rem;
   }
 }
+.servicios .servicio-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 26px 16px 24px;
+  background: #ffffff;
+  border: 1px solid #e1ecf8;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(20, 60, 120, 0.05);
+  font-family: "Work Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+ 
+/* Hover suave: sube un poco, sin cambiar el borde */
+.servicios .servicio-card:hover {
+  transform: translateY(-4px);
+  border-color: #cfe0f5;
+  box-shadow: 0 12px 24px -14px rgba(20, 60, 120, 0.3);
+}
+ 
+.servicios .servicio-icon {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  margin: 0 0 16px;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  background: var(--srv-fondo);
+  color: var(--srv-color);
+}
+ 
+.servicios .servicio-card h3 {
+  margin: 0 0 8px;
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #0c2a5c;
+}
+ 
+.servicios .servicio-card p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #5b6b86;
+}
+ 
+/* Quita el negrita que viene del <b> dentro del texto */
+.servicios .servicio-card p b {
+  font-weight: 400;
+}
+ 
+/* Colores del círculo, como en el modelo */
+.servicio--azul  { --srv-fondo: #e3efff; --srv-color: #2f6fe4; }
+.servicio--menta { --srv-fondo: #d9f5ee; --srv-color: #1aa98f; }
+.servicio--coral { --srv-fondo: #fde6e2; --srv-color: #e4604d; }
+ 
