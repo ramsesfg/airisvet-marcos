@@ -148,30 +148,44 @@
         </div>
       </div>
     </section>
-    <!-- TRANSFORMACIÓN 1 (imagen a la derecha) -->
-    <section class="transformacion">
-      <div class="wrap transformacion-inner">
-        <div class="transformacion-copy">
-          <p class="eyebrow"></p>
-          <h1> <b>Resultados reales</b> </h1>
-          <h2>Se nota la diferencia<br>desde el primer baño.</h2>
-          <p class="transformacion-lead">
-            <b> limpio, suave y sin enredos. Cada perrito sale con menos caída de pelo
-              y mucha más comodidad.</b>
+    <!-- En templates/index.html, reemplaza TODA la sección
+     <section class="transformacion"> ... </section>
+     (la de "Resultados reales", la que tiene las fotos de los perritos blancos) por este bloque.
+     No necesita CSS nuevo: usa las clases ps- de antes-despues.css. -->
+    <section class="ps-section">
+      <div class="wrap ps-inner">
+
+        <div class="ps-copy">
+          <p class="ps-kicker">Resultados reales</p>
+          <h2 class="ps-titulo">
+            <i class="fa-solid fa-paw"></i>
+            <span>Se nota la diferencia desde el primer baño.</span>
+          </h2>
+          <p class="ps-texto">
+            Limpio, suave y sin enredos. Cada perrito sale con menos caída de pelo y mucha más comodidad.
           </p>
+          <ul class="ps-lista">
+            <li><i class="fa-solid fa-check"></i> Shampoo según el tipo de pelaje</li>
+            <li><i class="fa-solid fa-check"></i> Secado y cepillado final</li>
+            <li><i class="fa-solid fa-check"></i> Corte a tijera o máquina, a tu elección</li>
+            <li><i class="fa-solid fa-check"></i> Unos 30 minutos por cita, en promedio</li>
+          </ul>
         </div>
-        <div class="transformacion-imagen">
-          <div class="antes-despues-card">
-            <div class="ad-foto">
-              <span class="ad-tag ad-tag-antes">Antes</span>
+
+        <div class="ps-media">
+          <div class="ps-fotos">
+            <figure class="ps-foto">
+              <span class="ps-tag ps-tag--antes">Antes</span>
               <img src="{{ url_for('static', filename='img/perrito2.png') }}" alt="Perro antes del baño y corte">
-            </div>
-            <div class="ad-foto">
-              <span class="ad-tag ad-tag-despues">Después</span>
+            </figure>
+            <figure class="ps-foto">
+              <span class="ps-tag ps-tag--despues">Después</span>
               <img src="{{ url_for('static', filename='img/perrito.png') }}" alt="Perro después del baño y corte">
-            </div>
+            </figure>
           </div>
+          <p class="ps-lema">Limpio, suave<br>y feliz <i class="fa-regular fa-heart"></i></p>
         </div>
+
       </div>
     </section>
     <section class="ps-section">
