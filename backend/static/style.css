@@ -1851,3 +1851,124 @@ img {
   .ps-section { padding: 40px 0; }
   .ps-inner { grid-template-columns: 1fr; gap: 28px; }
 }
+/* Pega esto al FINAL de static/style.css */
+
+.gs-section {
+  background: #ffffff;
+  padding: 56px 0 72px;
+  font-family: "Work Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* ---- Fotos en tarjetas ---- */
+
+.gs-fotos {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.gs-foto {
+  margin: 0;
+  aspect-ratio: 3 / 4;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #e3effc;
+  box-shadow: 0 1px 3px rgba(20, 60, 120, 0.06),
+              0 14px 28px -18px rgba(20, 60, 120, 0.35);
+}
+
+.gs-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  transition: transform 0.5s ease;
+}
+
+.gs-foto:hover img {
+  transform: scale(1.04);
+}
+
+/* ---- Estadísticas pegadas debajo, montadas sobre las fotos ---- */
+
+.gs-stats {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 880px;
+  margin: -40px auto 0;
+  background: #ffffff;
+  border: 1px solid #e1ecf8;
+  border-radius: 20px;
+  box-shadow: 0 18px 36px -20px rgba(20, 60, 120, 0.35);
+}
+
+.gs-stat {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 22px 26px;
+}
+
+.gs-stat + .gs-stat {
+  border-left: 1px solid #e1ecf8;
+}
+
+.gs-icono {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 1.15rem;
+  background: var(--gs-fondo);
+  color: var(--gs-color);
+}
+
+.gs-num {
+  display: block;
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #0c2a5c;
+}
+
+.gs-label {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.85rem;
+  color: #5b6b86;
+}
+
+.gs-azul  { --gs-fondo: #e3efff; --gs-color: #2f6fe4; }
+.gs-menta { --gs-fondo: #d9f5ee; --gs-color: #1aa98f; }
+.gs-coral { --gs-fondo: #fde6e2; --gs-color: #e4604d; }
+
+/* ---- Tablet y celular ---- */
+
+@media (max-width: 860px) {
+  .gs-fotos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .gs-stat {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    padding: 20px 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .gs-section { padding: 40px 0 56px; }
+
+  .gs-stats {
+    grid-template-columns: 1fr;
+    margin-top: -24px;
+  }
+
+  .gs-stat + .gs-stat {
+    border-left: 0;
+    border-top: 1px solid #e1ecf8;
+  }
+}

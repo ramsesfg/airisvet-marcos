@@ -101,30 +101,55 @@
 
     </section>
 
-    <!-- STATS -->
-    <section class="stats">
-      <div class="wrap stats-grid">
-        <div class="stat">
-          <span class="stat-num">7</span>
-          <span class="stat-label">
-            <h2>años de experiencia</h2>
-          </span>
+    <section class="gs-section">
+      <div class="wrap">
+
+        <div class="gs-fotos">
+          <figure class="gs-foto">
+            <img src="{{ url_for('static', filename='img/marcosia3.jpg') }}" alt="Perrito recién peinado en Airisvet"
+              loading="lazy">
+          </figure>
+          <figure class="gs-foto">
+            <img src="{{ url_for('static', filename='img/marcosia2.jpg') }}" alt="Perrito con su corte terminado"
+              loading="lazy">
+          </figure>
+          <figure class="gs-foto">
+            <img src="{{ url_for('static', filename='img/marcosia4.jpg') }}" alt="Perrito blanco después del baño"
+              loading="lazy">
+          </figure>
+          <figure class="gs-foto">
+            <img src="{{ url_for('static', filename='img/marcosia5.jpg') }}" alt="Perro grande con el pelaje cepillado"
+              loading="lazy">
+          </figure>
         </div>
-        <div class="stat">
-          <span class="stat-num">+1200</span>
-          <span class="stat-label">
-            <h2>peludos atendidos</h2>
-          </span>
+
+        <div class="gs-stats">
+          <div class="gs-stat gs-azul">
+            <span class="gs-icono"><i class="fa-solid fa-award"></i></span>
+            <div>
+              <span class="gs-num">7</span>
+              <span class="gs-label">años de experiencia</span>
+            </div>
+          </div>
+          <div class="gs-stat gs-menta">
+            <span class="gs-icono"><i class="fa-solid fa-dog"></i></span>
+            <div>
+              <span class="gs-num">+1200</span>
+              <span class="gs-label">peludos atendidos</span>
+            </div>
+          </div>
+          <div class="gs-stat gs-coral">
+            <span class="gs-icono"><i class="fa-solid fa-clock"></i></span>
+            <div>
+              <span class="gs-num">30 min</span>
+              <span class="gs-label">promedio por cita</span>
+            </div>
+          </div>
         </div>
-        <div class="stat">
-          <span class="stat-num">30 min</span>
-          <span class="stat-label">
-            <h2>promedio por cita</h2>
-          </span>
-        </div>
+
       </div>
     </section>
-   
+
     <section class="ps-section">
       <div class="wrap ps-inner">
 
